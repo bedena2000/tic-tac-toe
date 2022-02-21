@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Titillium+Web:wght@200&display=swap');
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: aquamarine;
+  font-family: 'Titillium Web', sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.game-title {
+  font-size: 64px;
+  text-align: center;
+  color: green;
+  margin-bottom: 40px;
+}
+
+.game-info {
+  display: grid;
+  grid-template-columns: 1fr 6fr 1fr;
+}
+
+.user {
+  border: 2px solid black;
+  padding: 40px;
+  text-align: center;
+}
+
+.user-icon i {
+  font-size: 120px;
+  margin-bottom: 40px;
+}
+
+.user-score-title {
+  font-size: 24px;
+  color: goldenrod;
+  margin-bottom: 40px;
+}
+
+.user-score-number {
+  font-size: 24px;
+  color: green;
+}
+
+.computer {
+  border: 2px solid black;
+  padding: 40px;
+  text-align: center;
+}
+
+.computer-icon i {
+  font-size: 120px;
+  margin-bottom: 40px;
+}
+
+.computer-score-title {
+  font-size: 24px;
+  color: goldenrod;
+  margin-bottom: 40px;
+}
+
+.computer-score-number {
+  font-size: 24px;
+  color: green;
+}
+
+.game-table {
+  border: 1px solid black;
+  width: 600px;
+  height: 600px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 200px);
+  grid-template-rows: repeat(3, 200px);
+}
+
+.table {
+  background-color: rgb(180, 180, 180);
+  border: 1px solid red;
+  cursor: pointer;
+  position: relative;
+}
+
+.reset {
+  width: 120px;
+  padding: 6px 30px;
+  background-color: chocolate;
+  color: white;
+  font-size: 24px;
+  margin: 0 auto;
+  border-radius: 20px;
+  display: block;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.x {
+  font-size: 64px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all .3s ease;
+}
+
+.o {
+  font-size: 64px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: scale(0);
+  transition: all .3s ease;
+}
+
+.x-show {
+  transform: scale(1);
+}
+
+.o-show {
+  transform: scale(1);
+}
