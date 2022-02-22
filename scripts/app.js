@@ -1,6 +1,5 @@
 // Array, and other useful tools
 const infoArray = [];
-let useful = 20;
 const stepsArray = [];
 let userSteps = [];
 let computerSteps = [];
@@ -110,23 +109,40 @@ tableButtonsCollection.forEach(item => {
         let itemPosition = event.target.getAttribute('data-pos');
         userSteps.push(Number(itemPosition));
         let whoWinner = checkWinner(userSteps, winningSteps);
-        console.log(whoWinner);
         if(whoWinner === true) {
           winnerDisplay('user');
         }
-      } else {
-        item.dataset.icono = "icon-o";
-        let itemIcon = item.querySelector(".o");
+        // Computer Move
+        let buttonArray = Array.from(tableButtonsCollection);
+        let allowsArrow = buttonArray.filter(item => !item.hasAttribute('data-iconx'));
+        allowsArrow = allowsArrow.filter(item => !item.hasAttribute('data-icono'));
+        // Make random number with this array
+        let newArrayNumber = allowsArrow.length;
+        let randomNumber = Math.floor(Math.random() * newArrayNumber);
+        let currentCompItem = allowsArrow[randomNumber];
+        currentCompItem.dataset.icono = "icon-o";
+        let currentItemIcon = currentCompItem.querySelector(".o");
         iconTracker = false;
-        itemIcon.classList.add("o-show");
-        console.log(event.target);
-        let itemPosition = event.target.getAttribute('data-pos');
-        computerSteps.push(Number(itemPosition));
-        let whoWinner = checkWinner(computerSteps, winningSteps);
-        console.log(whoWinner);
-        if(whoWinner === true) {
+        currentItemIcon.classList.add("o-show");
+        let currentCompItemPos = currentCompItem.getAttribute('data-pos');
+        computerSteps.push(Number(currentCompItemPos));
+        let checkCompWinner = checkWinner(computerSteps, winningSteps);
+        if(checkCompWinner === true) {
           winnerDisplay('computer');
         }
+      } else {
+        // item.dataset.icono = "icon-o";
+        // let itemIcon = item.querySelector(".o");
+        // iconTracker = false;
+        // itemIcon.classList.add("o-show");
+        // console.log(event.target);
+        // let itemPosition = event.target.getAttribute('data-pos');
+        // computerSteps.push(Number(itemPosition));
+        // let whoWinner = checkWinner(computerSteps, winningSteps);
+        // console.log(whoWinner);
+        // if(whoWinner === true) {
+        //   winnerDisplay('computer');
+        // }
       }
     }
   });
