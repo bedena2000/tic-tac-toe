@@ -1,5 +1,6 @@
 // Array, and other useful tools
 const infoArray = [];
+let useful = 20;
 const stepsArray = [];
 let userSteps = [];
 let computerSteps = [];
